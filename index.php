@@ -2,11 +2,6 @@
 <div class="page-content bg-white">
 
 
-
-	
-	
-	
-
 	<!-- Book Sale -->
 	<section class="content-inner-1">
 		<div class="container">
