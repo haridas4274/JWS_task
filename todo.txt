@@ -1,0 +1,29 @@
+Website :
+    design-complete
+    setup envoronment -complete
+    layouts -complete
+    register:
+        register userr- complate
+        validation - complate
+        user exist - pending
+        alert register not.. -complet`
+
+    login: (intro)
+        design-complete
+
+
+Admin Panel:
+    design- complet
+    spliting codeigniter -complete
+    login user -complete
+        menu: (intro) 
+
+db:
+    
+admin   - complete
+cart_item   - complete
+order_items - complete
+products    - complete
+users   - complete
+user_address    - complete
+user_orders - complete

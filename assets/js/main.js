@@ -34,7 +34,7 @@ function validateCaptcha() {
     var btn=document.getElementById("validBtn");
     btn.classList.replace("validBtn", "validedBtn");
     btn.innerText="Verified";
-    document.getElementById("regEvent").innerHTML =` <button class="btn btn-dark" id="register">Register</button>`;
+    document.getElementById("regEvent").innerHTML =` <button class="btn btn-success" id="register">Register</button>`;
   }else{
     // alert("Invalid Captcha. try Again");
     document.getElementById("cpatchaTextBox").value="";
@@ -44,3 +44,47 @@ function validateCaptcha() {
   }
 }
 
+///registration
+
+$(document).ready(function() {
+    $("#register").click(function() {
+        var formData = $("#register-form").serializeArray();
+        console.log(formData);
+        if (formData[1].value != formData[3].value) {
+            $(".msg").html("<span>Password Mismatch</span>");
+        } else if (formData[0].value === "") {
+            $("#username").css("outline-color", "red");
+            alert("Please enter a username");
+        } else if (formData[2].value === "") {
+            $("#email").val("haridas");
+            $("#email").css("outline-color", "red");
+            alert("Please enter an email");
+        } else if (formData[1].value === "") {
+            $("#password").css("outline-color", "red");
+            alert("Please enter a password");
+        } else if (formData[3].value === "") {
+            $("#c_password").css("outline-color", "red");
+            alert("Please confirm your password");
+        } else {
+            // alert("Success");
+            $.ajax({
+                url: "functions/register.php",
+                type: "POST",
+                data: formData,
+                success: function(response) {
+                //    console.log(response);
+                if(response=true){
+                    $('#error').text('Register Successfull');
+                    $("#registerModal").modal('hide');
+
+                }else{
+                    $('#error').text('Register Failed');
+                }
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+    });
+});

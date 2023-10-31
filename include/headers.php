@@ -3,6 +3,9 @@
 
 <?php
 include("config/db_con.php");
+
+session_start();
+ob_start();
 ?>
 
 <head>
@@ -108,7 +111,6 @@ include("config/db_con.php");
                     <div class="logo-header logo-dark">
                         <a href="index.html"><img src="https://jayamwebsolutions.com/images/logo.png" alt="logo"></a>
                     </div>
-
                     <!-- EXTRA NAV -->
                     <div class="extra-nav">
                         <div class="extra-cell">
@@ -351,15 +353,15 @@ include("config/db_con.php");
                                 <div class="row">
                                     <div class="col-6">
                                         <label for="">Name</label>
-                                        <input type="Name" name="username" class="form-control" placeholder="Enter Your Name">
+                                        <input type="text" name="username" id="username" class="form-control" placeholder="Enter Your Name">
                                         <label for="">Password</label>
-                                        <input type="password" name="password" class="form-control" placeholder="Password">
+                                        <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                                     </div>
                                     <div class="col-6">
                                         <label for="">Email</label>
-                                        <input type="Name" name="username" class="form-control" placeholder="Enter Your Name">
+                                        <input type="email" name="email" id="email" class="form-control" placeholder="Enter Your Email">
                                         <label for="">Confirm Password</label>
-                                        <input type="password" name="c_password" class="form-control" placeholder="Confirm Password">
+                                        <input type="password" name="c_password" id="c_password" class="form-control" placeholder="Confirm Password">
                                     </div>
                                 </div>
                                 <hr>
@@ -379,7 +381,7 @@ include("config/db_con.php");
                             </form>
                         </div>
                         <div class="modal-footer" id="regEvent">
-                            <!-- <button class="btn btn-dark" id="verify_mobile">Register</button> -->
+                            <button class="btn btn-success" id="register">Register</button>
                         </div>
                     </div>
                 </div>
