@@ -49,6 +49,8 @@
           <script src="assets/js/dz.carousel.js"></script><!-- DZ CAROUSEL JS -->
           <script src="assets/js/dz.ajax.js"></script><!-- AJAX -->
           <script src="assets/js/custom.js"></script><!-- CUSTOM JS -->
+
+          <script src="assets/js/main.js"></script>  
       </body>
 
 </html>

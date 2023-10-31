@@ -48,7 +48,41 @@ include("config/db_con.php");
             height: 150px;
             object-fit: cover;
         }
+
+        canvas {
+            /*prevent interaction with the canvas*/
+            pointer-events: none;
+        }
+
+        .captchaInput {
+            padding: 8px 10px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            /* width: 40px; */
+            box-sizing: border-box;
+        }
+
+        .validBtn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .validedBtn{
+            background-color:blue;
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
     </style>
+
 </head>
 
 <body>
@@ -322,7 +356,7 @@ include("config/db_con.php");
                                         <input type="password" name="password" class="form-control" placeholder="Password">
                                     </div>
                                     <div class="col-6">
-                                    <label for="">Email</label>
+                                        <label for="">Email</label>
                                         <input type="Name" name="username" class="form-control" placeholder="Enter Your Name">
                                         <label for="">Confirm Password</label>
                                         <input type="password" name="c_password" class="form-control" placeholder="Confirm Password">
@@ -330,20 +364,22 @@ include("config/db_con.php");
                                 </div>
                                 <hr>
                                 <div class="row">
-                                        <div class="col-6">
-                                            <div class="bg-blue">
-                                                <span id="captcha">34683</span>
-                                            </div>
+                                    <div class="msg text-danger"></div>
+                                    <div class="col-3">
+                                        <div id="captcha">
                                         </div>
-                                        <div class="col-6">
-                                            <input type="text" name="captcha">
-                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="text" class="captchaInput" placeholder="Captcha" id="cpatchaTextBox" />
+                                        <button onClick="validateCaptcha()" id="validBtn" class="validBtn">Submit</button>
+                                    </div>
+
                                 </div>
 
                             </form>
                         </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-dark" id="verify_mobile">Login</button>
+                        <div class="modal-footer" id="regEvent">
+                            <!-- <button class="btn btn-dark" id="verify_mobile">Register</button> -->
                         </div>
                     </div>
                 </div>
