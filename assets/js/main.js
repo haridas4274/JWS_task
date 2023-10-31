@@ -88,3 +88,36 @@ $(document).ready(function() {
         }
     });
 });
+
+
+
+//login 
+$("#login").click(function(e){
+    e.preventDefault();
+    var logData=$("#login-form").serializeArray();
+    // console.log(logData);
+    var msg=$('.loginerror');
+    $.ajax({
+        url: "functions/login.php",
+        type: "POST",
+        data: logData,
+        success: function(response) {
+           console.log(response);
+        if(response==1){
+            msg.text('Login Successfull');
+            msg.css("color", "red");
+            setTimeout(() => {
+                $("#exampleModalToggle").modal('hide');
+                // alert("jarda");
+            }, 500);
+
+        }else{
+            msg.text('Invalid User');
+            msg.css("color", "red");
+        }
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+});

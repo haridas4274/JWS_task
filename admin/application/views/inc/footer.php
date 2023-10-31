@@ -190,7 +190,35 @@
 			});
 		</script>
 
+<script>
+	// $(document).ready(function(){
+		function userStatus(userId,status){
+		// alert(userId,status)
+		var msg=status=="active"?"deactive":"active";
+		var ok=confirm(`Are you Sure to ${msg} This User?`);
+		if(ok){
+			$.ajax({
+				url: '<?=base_url("user_active")?>',
+				type:"POST",
+				data:{
+					user_id:userId,
+					status:msg
+				},
+				success:function(respose){
+					console.log(respose);
+					if(respose ==true){
+						window.location.reload();
+					}else{
+						alert("Error to Update");
+					}
 
+				}
+
+			})
+		}
+	}
+	// });
+</script>
 
 	
     </body>

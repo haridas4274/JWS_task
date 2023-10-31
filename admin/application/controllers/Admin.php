@@ -15,13 +15,14 @@ class Admin extends CI_Controller {
 		if(($this->session->userdata('admin_role')!="")){
 			$thisWeek = strtotime('-' . date('w') . ' days');
 
-			$data['new_user']=$this->Admodel->users(1,'count');
-			$data['total_user']=$this->Admodel->users(2,'count');
-			$data['today_booking']=$this->Admodel->bookings(array('booking_date'=>date('Y-m-d')),'count','book_id');
-			$data['week_booking']=$this->Admodel->bookings(array('DATE(booking_date) >='=> $thisWeek),'count','book_id');
-			$data['total_booking']=$this->Admodel->bookings(null,'count','book_id');
+			// $data['new_user']=$this->Admodel->users(1,'count');
+			// $data['total_user']=$this->Admodel->users(2,'count');
+			// $data['today_booking']=$this->Admodel->bookings(array('booking_date'=>date('Y-m-d')),'count','book_id');
+			// $data['week_booking']=$this->Admodel->bookings(array('DATE(booking_date) >='=> $thisWeek),'count','book_id');
+			// $data['total_booking']=$this->Admodel->bookings(null,'count','book_id');
+			$data['data']=$this->Admodel->users(2,'all');
 			$this->load->view('inc/header');
-			$this->load->view('dashboard',$data);
+			$this->load->view('user',$data);
 			$this->load->view('inc/footer');
 		}else{
 			redirect('Admin/log_in');
@@ -31,7 +32,7 @@ class Admin extends CI_Controller {
 		$this->load->view('log_in');
 	}
 	public function auth(){
-		print_r($this->input->post());
+		// print_r($this->input->post());
 		$user_name=$this->input->post('username');
 		$pass=$this->input->post('password');
 
@@ -54,6 +55,30 @@ class Admin extends CI_Controller {
 			$this->load->view('user',$data);
 			$this->load->view('inc/footer');
 	}
+	public function user_active(){
+		// print_r();
+		$status=$this->input->post('status');
+		$user_id=$this->input->post('user_id');
+
+
+		$updated=$this->db->where('user_id',$user_id)->update('users',array('user_status'=> $status));
+		if($updated){
+			echo true;
+		}else{
+			echo false;
+		}
+
+	}
+	public function products(){
+		$this->load->view('inc/header');
+		$this->load->view('products');
+		$this->load->view('inc/footer');
+	}
+	public function product_page(){
+		$this->load->view('inc/header');
+		$this->load->view('product_page');
+		$this->load->view('inc/footer');
+	}
 	public function updateuser(){
 		$id=$this->input->post('user_id');
 
@@ -75,25 +100,7 @@ class Admin extends CI_Controller {
 			redirect('user/'.$id.'');
 		}
 	}
-	public function booking($get){
-		
-		if($get==1){
-			$date=date("Y-m-d");	
-			$con=array(
-				'booking_date'=>$date
-			);
-		}else{
-			$con==null;
-		}
-		
 
-		$data['data']=$this->Admodel->bookings($con,'all','book_id');
-
-		// print_r($data);
-		$this->load->view('inc/header');
-		$this->load->view('booking',$data);
-		$this->load->view('inc/footer');
-	}
 
 	public function log_out(){
 		$this->session->sess_destroy();

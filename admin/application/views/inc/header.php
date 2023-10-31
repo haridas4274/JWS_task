@@ -269,9 +269,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?= base_url('booking/2')?>">
+                            <a href="<?= base_url('products')?>">
                                 <i data-feather="target"></i>
-                                <span data-key="t-icons">Bookings</span>
+                                <span data-key="t-icons">Products</span>
                             </a>
                         </li>
                         <li>

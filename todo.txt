@@ -6,20 +6,36 @@ Website :
         register userr- complate
         validation - complate
         user exist - pending
-        alert register not.. -complet`
+        alert register not.. -complete`
+        captcha generator --complete
+        captcha validation --complete
 
-    login: (intro)
+    login: 
         design-complete
-
+        validation -- complete
+        routing -- complate
+        
 
 Admin Panel:
     design- complet
     spliting codeigniter -complete
     login user -complete
-        menu: (intro) 
+        menu:
+            users --process
+                user list -- complete
+                user edit,delete -- processing
+                user Active Deactive -- processing
 
-db:
-    
+            Products --intro
+                product list --complete
+                product ordring --
+                add product -- processing
+
+            orders --intro
+                order list --
+                view order items --
+
+database:
 admin   - complete
 cart_item   - complete
 order_items - complete

@@ -7,7 +7,7 @@ ob_start();
 $user =new crud();
 
 unset($_POST['c_password']);
-
+$_POST['password']=md5($_POST['password']);
 // $isset=$user->select()  //already user there or not part pending.
 
 $register=$user->insert('users',$_POST);

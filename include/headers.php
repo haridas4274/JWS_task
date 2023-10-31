@@ -6,6 +6,7 @@ include("config/db_con.php");
 
 session_start();
 ob_start();
+$user=new crud;
 ?>
 
 <head>
@@ -313,18 +314,18 @@ ob_start();
                         </div>
                         <div class="modal-body">
                             <form id="login-form">
-                                <div class="error">
+                                <div class="loginerror">
                                 </div>
-                                <label for="">User Name</label>
-                                <input type="number" name="username" class="form-control" placeholder="UserName">
+                                <label for="">Email</label>
+                                <input type="email" name="email" id="user_email" require class="form-control" placeholder="Enter Email Address">
                                 <hr>
 
                                 <label for="">Password</label>
-                                <input type="number" name="password" class="form-control" placeholder="Password">
+                                <input type="number" name="password" id="user_password" require class="form-control" placeholder="Password">
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-dark" id="verify_mobile">Login</button>
+                            <button class="btn btn-dark" id="login">Login</button>
                             <!-- data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"  data-bs-dismiss="modal" -->
                         </div>
                     </div>
@@ -343,7 +344,7 @@ ob_start();
                     </div>
                     <div class="rightModal">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalToggleLabel">Login </h5>
+                            <h5 class="modal-title" id="exampleModalToggleLabel">Register </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">

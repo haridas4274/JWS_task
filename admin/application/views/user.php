@@ -30,34 +30,36 @@
                             <th>#</th>
                             <th>User Id</th>
                             <th>User Name</th>
-                            <th>Gender</th>
-                            <th>Mobile Num</th>
+                           
                             <th>Email</th>
-                            <th>Referer Id</th>
+                           
                             <th >Action</th>
                             <th >Action</th>
+                            <th>Status</th>
+
                         </tr>
                     </thead>
-
 
                     <tbody>
                         <?php 
 											$i=1;
 											foreach ($data as $key => $val) {
+												// print_r($val);
 												$user_id=$val['user_id'];
+												$user_status=$val['user_status'];
 												?>
                         <tr>
                             <td><?=$i++ ?></td>
-                            <td><?=$val['user_unique_id'] ?></td>
-                            <td><?=$val['user_name'] ?></td>
-                            <td><?=$val['user_gender'] ?></td>
-                            <td><?=$val['user_mobile_no'] ?></td>
-                            <td><?=$val['user_email'] ?></td>
-                            <td><?=$val['referel_user'] ?></td>
+                            <td><?=$user_id ?></td>
+                            <td><?=$val['username'] ?></td>
+                            <td><?=$val['email'] ?></td>
+                          
                             <td><button class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
                                     data-bs-target="#useredit">Edit</button></td>
                             <td><button class="btn btn-danger waves-effect waves-light" data-bs-toggle="modal"
                                     data-bs-target="#userdelete">Delete</button></td>
+
+                            <td><button onclick="userStatus(<?=$user_id ?>,'<?=$user_status?>')" class="btn btn-<?php echo $val['user_status']=="active"?"success":"danger"; ?> waves-effect waves-light" ><?=$val['user_status']?></button></td>
                         </tr>
 
                         <!-- /////user Edit model -->
@@ -77,28 +79,15 @@
                                             <div>
                                                 <div class="mb-3">
                                                     <label for="example-text-input"  class="form-label">User Name:</label>
-                                                    <input class="form-control" type="text" name="user_name" value="<?=$val['user_name'] ?>"
+                                                    <input class="form-control" type="text" name="user_name" value="<?=$val['username'] ?>"
                                                         id="example-text-input">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="example-email-input" class="form-label">Email:</label>
-                                                    <input class="form-control" type="email" value="<?=$val['user_email'] ?>"
+                                                    <input class="form-control" type="email" value="<?=$val['email'] ?>"
                                                         name="user_email" id="example-email-input">
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label for="example-number-input" class="form-label">Mobile Number:</label>
-                                                    <input class="form-control" type="number" name="user_mobile_no" value="<?=$val['user_mobile_no'] ?>"
-                                                        id="example-number-input">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="genter" class="form-label">Mobile Number:</label>
-                                                    <select name="user_gender" id="genter" class="form-control">
-														<option value="male">Male</option>
-														<option value="female">FeMale</option>
-													</select>
-                                                </div>
-                                              
-
+                                               
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -147,6 +136,4 @@
     </div> <!-- end col -->
 </div> <!-- end row -->
 
-<script>
 
-</script>
