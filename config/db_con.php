@@ -9,7 +9,7 @@ if ($db->connect_errno) {
 // Global configs
 $base_url=(isset($_SERVER['HTTPS']) ? "https://" : "http://") . $_SERVER['HTTP_HOST'] . str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
 
-
+// oops
 class crud{
 
     function insert($table, $data){
