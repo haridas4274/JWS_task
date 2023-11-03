@@ -102,7 +102,7 @@ $("#login").click(function(e){
         type: "POST",
         data: logData,
         success: function(response) {
-           console.log(response);
+        //    console.log(response);
         if(response==1){
             msg.text('Login Successfull');
             msg.css("color", "red");
@@ -121,3 +121,6 @@ $("#login").click(function(e){
         }
     });
 });
+
+
+

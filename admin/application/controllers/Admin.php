@@ -114,16 +114,25 @@ class Admin extends CI_Controller {
 			redirect('user/'.$id.'');
 		}
 	}
-
-
 	public function log_out(){
 		$this->sefssion->sess_destroy();
 		redirect(base_url());
 	}
-	public function referal_list(){
-		$data['data']=$this->Admodel->referal_list();
-		$this->load->view('inc/header');
-		$this->load->view('referal',$data);
-		$this->load->view('inc/footer');
+	public function add_to_cart(){
+		$user_id=$this->input->post('user_id');
+		$pro_id=$this->input->post('pro_id');
+		// $qty=$this->input->post('qty');
+
+		$data=$this->db->get_where('products',array('pro_id'=>$pro_id))->row_array();
+
+		print_r($data);
+		$con=array(
+			'user_for_id'=>$user_id,
+			'pro_id'=>$pro_id
+			// 'add_status'=>1
+		);
+
+		// $this->db->insert('cart_item',)
 	}
+	
 }
