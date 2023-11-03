@@ -6,10 +6,10 @@
 <head>
     <?php $url=base_url();?>
     <meta charset="utf-8" />
-    <title>Dashboard | Blue Bus - Admin Dashboard</title>
+    <title>Jayam - Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="<?= base_url();?>assets/images/favicon.ico">
+    <link rel="shortcut icon" href="https://jayamwebsolutions.com/images/favicon.png">
     <!-- plugin css -->
     <link href="<?= base_url();?>assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css"
         rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@
                             </span>
                             <span class="logo-lg">
                                 <img src="<?= base_url();?>assets/images/logo-sm.svg" alt="" height="24"> <span
-                                    class="logo-txt">Blue Bus</span>
+                                    class="logo-txt">JayamAdmin</span>
                             </span>
                         </a>
 
@@ -56,7 +56,7 @@
                             </span>
                             <span class="logo-lg">
                                 <img src="<?= base_url();?>assets/images/logo-sm.svg" alt="" height="24"> <span
-                                    class="logo-txt">Blue Bus</span>
+                                    class="logo-txt">JayamAdmin</span>
                             </span>
                         </a>
                     </div>

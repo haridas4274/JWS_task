@@ -88,7 +88,7 @@
 			success: function(respose) {
 				console.log(respose);
 				if (respose == true) {
-					window.location.reload();
+					// window.location.reload();
 				} else {
 					alert("Error to Update");
 				}

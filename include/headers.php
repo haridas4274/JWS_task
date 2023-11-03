@@ -21,7 +21,7 @@ $user = new crud;
     <link rel="icon" type="image/x-icon" href="https://jayamwebsolutions.com/images/favicon.png" />
 
     <!-- PAGE TITLE HERE -->
-    <title>Bookland Book Store Ecommerce Website</title>
+    <title>Jayam Solutions</title>
 
     <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1">

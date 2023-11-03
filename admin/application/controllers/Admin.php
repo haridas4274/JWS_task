@@ -72,11 +72,13 @@ class Admin extends CI_Controller {
 	public function update_order(){
 		$product_id=$this->input->post('pro_id');
 		$data['order_by']=$this->input->post('order');
-		$update=$this->db->where(array('pro_id',$product_id))->update('products',$data);
+		$update=$this->db->where('pro_id',$product_id)->update('products',$data);
 		if($update==true){
 			echo 1;
+			// print_r($this->db->last_query());
 		}else{
 			echo 0;
+			// print_r($this->db->last_query());
 		}
 	}
 	public function products(){
@@ -115,7 +117,7 @@ class Admin extends CI_Controller {
 
 
 	public function log_out(){
-		$this->session->sess_destroy();
+		$this->sefssion->sess_destroy();
 		redirect(base_url());
 	}
 	public function referal_list(){
