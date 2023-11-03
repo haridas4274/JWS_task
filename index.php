@@ -15,30 +15,37 @@
 			</div>
 			<div class="swiper-container books-wrapper-3 swiper-four">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">
-							<div class="dz-media">
-								<img src="assets/images/books/grid/book5.jpg" alt="book">
-							</div>
-							<div class="dz-content">
-								<h5 class="title"><a href="books-grid-view.html">Take Out Tango</a></h5>
-								<ul class="dz-tags">
-									<li><a href="books-grid-view.html">SPORTS,</a></li>
-									<li><a href="books-grid-view.html">DRAMA</a></li>
-								</ul>
-								<div class="book-footer">
-									<div class="rate">
-										<i class="flaticon-star"></i> 6.8
-									</div>
-									<div class="price">
-										<span class="price-num">$9.5</span>
-										<del>$12.0</del>
+					<?php
+					$query = "SELECT * FROM `products` ORDER BY `order_by` ASC";
+					$result = $db->query($query);
+					while ($row = $result->fetch_assoc()) { ?>
+						<div class="swiper-slide">
+							<div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">
+								<div class="dz-media">
+									<img src="<?=$row['pro_image']?>" alt="book">
+								</div>
+								<div class="dz-content">
+									<h5 class="title"><a href="javascript:void(0);"><?=$row['pro_name']?></a></h5>
+									<ul class="dz-tags">
+										<li><a href="books-grid-view.html"><?=$row['pro_desc']?></a></li>
+									</ul>
+									<div class="book-footer">
+										
+										<div class="price">
+											<span class="price-num">₹<?=$row['pro_price']?></span>
+											<!-- <del>$12.0</del> -->
+										</div>
+										<button onClick="addCart(<?=$row['pro_id']?>)" class="btn btn-sm btn-promary">AddtoCart</button>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="swiper-slide">
+
+					<?php } ?>
+
+
+
+					<!-- <div class="swiper-slide">
 						<div class="books-card style-3 wow fadeInUp" data-wow-delay="0.2s">
 							<div class="dz-media">
 								<img src="assets/images/books/grid/book11.jpg" alt="book">
@@ -152,7 +159,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

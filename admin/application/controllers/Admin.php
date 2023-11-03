@@ -60,7 +60,6 @@ class Admin extends CI_Controller {
 		$status=$this->input->post('status');
 		$user_id=$this->input->post('user_id');
 
-
 		$updated=$this->db->where('user_id',$user_id)->update('users',array('user_status'=> $status));
 		if($updated){
 			echo true;
@@ -69,12 +68,27 @@ class Admin extends CI_Controller {
 		}
 
 	}
+
+	public function update_order(){
+		$product_id=$this->input->post('pro_id');
+		$data['order_by']=$this->input->post('order');
+		$update=$this->db->where(array('pro_id',$product_id))->update('products',$data);
+		if($update==true){
+			echo 1;
+		}else{
+			echo 0;
+		}
+	}
 	public function products(){
+		$data['datas']=$product=$this->db->get('products')->result_array();
+		$data['count']=count($product);
+
 		$this->load->view('inc/header');
-		$this->load->view('products');
+		$this->load->view('products',$data);
 		$this->load->view('inc/footer');
 	}
 	public function product_page(){
+		
 		$this->load->view('inc/header');
 		$this->load->view('product_page');
 		$this->load->view('inc/footer');
@@ -82,10 +96,8 @@ class Admin extends CI_Controller {
 	public function updateuser(){
 		$id=$this->input->post('user_id');
 
-		$upd['user_name']=$this->input->post('user_name');
-		$upd['user_mobile_no']=$this->input->post('user_mobile_no');
-		$upd['user_email']=$this->input->post('user_email');
-		$upd['user_gender']=$this->input->post('user_gender');
+		$upd['username']=$this->input->post('username');
+		$upd['email']=$this->input->post('email');
 
 		$this->db->where('user_id',$id);
 		$updated=$this->db->update('users',$upd);

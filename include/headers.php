@@ -6,7 +6,7 @@ include("config/db_con.php");
 
 session_start();
 ob_start();
-$user=new crud;
+$user = new crud;
 ?>
 
 <head>
@@ -76,8 +76,9 @@ $user=new crud;
             margin: 4px 2px;
             cursor: pointer;
         }
-        .validedBtn{
-            background-color:blue;
+
+        .validedBtn {
+            background-color: blue;
             border: none;
             color: white;
             padding: 8px 20px;
@@ -117,13 +118,7 @@ $user=new crud;
                         <div class="extra-cell">
                             <ul class="navbar-nav header-right">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="wishlist.html">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
-                                            <path d="M0 0h24v24H0V0z" fill="none" />
-                                            <path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z" />
-                                        </svg>
-                                        <span class="badge">21</span>
-                                    </a>
+                                  
                                 </li>
                                 <li class="nav-item">
                                     <button type="button" class="nav-link box cart-btn">
@@ -189,8 +184,8 @@ $user=new crud;
                                     <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="images/profile1.jpg" alt="/">
                                         <div class="profile-info">
-                                            <h6 class="title">Brian</h6>
-                                            <span>info@gmail.com</span>
+                                            <h6 class="title">Haridas</h6>
+                                            <span>haridasnamakkal@gmail.com</span>
                                         </div>
                                     </a>
                                     <div class="dropdown-menu py-0 dropdown-menu-end">
@@ -217,22 +212,19 @@ $user=new crud;
                                                     <span class="ms-2">My Order</span>
                                                 </div>
                                             </a>
-                                            <a href="wishlist.html" class="dropdown-item d-flex justify-content-between align-items-center ai-icon">
-                                                <div>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#000000">
-                                                        <path d="M0 0h24v24H0V0z" fill="none" />
-                                                        <path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z" />
-                                                    </svg>
-                                                    <span class="ms-2">Wishlist</span>
-                                                </div>
-                                            </a>
+                                          
                                         </div>
                                         <div class="dropdown-footer">
-                                            <a class="btn btn-primary w-100 btnhover btn-sm" href="shop-login.html">Log
-                                                Out</a>
-                                            <button class="btn btn-primary w-100 btnhover btn-sm" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Log
+                                            <?php if (isset($_SESSION['user_id'])) { ?>
+                                                <a class="btn btn-primary w-100 btnhover btn-sm" href="logout.php">Log
+                                                    Out</a>
+                                            <?php } else { ?>
+                                                <button class="btn btn-primary w-100 btnhover btn-sm" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Log
                                                 in</button>
                                             <button class="btn btn-primary w-100 btnhover btn-sm" data-bs-target="#registerModal" data-bs-toggle="modal" data-bs-dismiss="modal">Register</button>
+                                            <?php } ?>
+
+                                           
                                         </div>
                                     </div>
                                 </li>
@@ -382,7 +374,7 @@ $user=new crud;
                             </form>
                         </div>
                         <div class="modal-footer" id="regEvent">
-                            <button class="btn btn-success" id="register">Register</button>
+                            <!-- <button class="btn btn-success" id="register">Register</button> -->
                         </div>
                     </div>
                 </div>

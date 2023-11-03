@@ -50,12 +50,12 @@
 												?>
                         <tr>
                             <td><?=$i++ ?></td>
-                            <td><?=$user_id ?></td>
+                            <td>#000<?=$user_id ?></td>
                             <td><?=$val['username'] ?></td>
                             <td><?=$val['email'] ?></td>
                           
                             <td><button class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
-                                    data-bs-target="#useredit">Edit</button></td>
+                                    data-bs-target="#useredit<?=$user_id ?>">Edit</button></td>
                             <td><button class="btn btn-danger waves-effect waves-light" data-bs-toggle="modal"
                                     data-bs-target="#userdelete">Delete</button></td>
 
@@ -63,7 +63,7 @@
                         </tr>
 
                         <!-- /////user Edit model -->
-                        <div class="modal fade" id="useredit" tabindex="-1" role="dialog" aria-hidden="true"
+                        <div class="modal fade" id="useredit<?=$user_id ?>" tabindex="-1" role="dialog" aria-hidden="true"
                             data-bs-scroll="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -79,13 +79,13 @@
                                             <div>
                                                 <div class="mb-3">
                                                     <label for="example-text-input"  class="form-label">User Name:</label>
-                                                    <input class="form-control" type="text" name="user_name" value="<?=$val['username'] ?>"
+                                                    <input class="form-control" type="text" name="username" value="<?=$val['username'] ?>"
                                                         id="example-text-input">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="example-email-input" class="form-label">Email:</label>
                                                     <input class="form-control" type="email" value="<?=$val['email'] ?>"
-                                                        name="user_email" id="example-email-input">
+                                                        name="email" id="example-email-input">
                                                 </div>
                                                
                                             </div>

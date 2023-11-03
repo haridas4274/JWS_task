@@ -24,12 +24,16 @@ Admin Panel:
             users --process
                 user list -- complete
                 user edit,delete -- processing
-                user Active Deactive -- processing
+                user Active Deactive -- complete
 
             Products --intro
                 product list --complete
-                product ordring --
+                product ordring --complete
                 add product -- processing
+
+            cart -- intro(design)
+                addtoCart --  
+                list cart --
 
             orders --intro
                 order list --

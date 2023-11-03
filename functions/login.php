@@ -9,8 +9,11 @@ $user =new crud();
 extract($_POST);
 $password=md5($password);
 $check=$user->count("users","`email`='$email' AND `password`='$password'");
-
-if($check>1){
+$test=$user->select("users","*","`email`='$email' AND `password`='$password'", $debug=true);
+// print_r($check);
+// print_r($test);
+// print_r($check);
+if($check>0){
     $fetch_data=$user->select("users","*","`email`='$email' AND `password`='$password'", $debug=false);
 
     $_SESSION['user_id']=$fetch_data['user_id'];
